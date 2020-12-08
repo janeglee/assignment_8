@@ -8,6 +8,12 @@
     </head>
 
     <body>
+        <h1>Animal Coding Game</h1>
+        <h2>How to Play: Place an animal in the 'animal' box, and place an action in the 'verb' box. 
+            Press 'Generate Animal.' <br>
+            If the generated animal matches the animal you put in the 'animal' box, the picture will act out the action.
+        </h2>
+        <!--This is where users can drop animals or verbs into boxes-->
         <div id="dropZone">
             <div id="condition">
             <p>If</p>
@@ -31,6 +37,7 @@
             </div>
         </div>
         
+        <!--Pics of animals-->
         <div
             id="animals"
             ondrop="drop(event)"
@@ -38,7 +45,7 @@
         >
             <img
             id="cat"
-            src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Y2F0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            src="https://tinyurl.com/y5nb5srl"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -46,7 +53,7 @@
         
             <img
             id="dog"
-            src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzR8fGRvZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            src="https://tinyurl.com/yyxtnt6w"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -54,7 +61,7 @@
         
             <img
             id="cow"
-            src="https://images.unsplash.com/photo-1545468800-85cc9bc6ecf7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvd3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            src="https://tinyurl.com/y325y39y"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -62,13 +69,14 @@
         
             <img
             id="bird"
-            src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmlyZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            src="https://tinyurl.com/y63y9arx"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
             />
         </div>
 
+        <!--Pics of verbs-->
         <div
             id="verb"
             ondrop="drop(event)"
@@ -107,9 +115,11 @@
             />
         </div>
 
-        <button onclick="randomImg()">Generate Animal</button>
+        <!--Generate Animal. If the picture matches with the picture user initially chose, animal will animate w/ verb-->
+        <div id="generate">
+            <button onclick="randomImg()">Generate Animal</button>
+            <p><img id="randomImgBox" src="https://tinyurl.com/yxt586nh"></p>
+        </div>
         
-        <!--On button click, start randomImg () function-->
-        <!--If image matches condition, have image immediately animate-->
         <script src="script.js"></script>
     </body>
