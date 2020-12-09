@@ -9,43 +9,45 @@
 
     <body>
         <h1>Animal Coding Game</h1>
-        <h2>How to Play: Place an animal in the 'animal' box, and place an action in the 'verb' box. 
+        <h2>How to Play: Place an animal in the 'animal' box, and place an action in the 'action' box. 
             Press 'Generate Animal.' <br>
             If the generated animal matches the animal you put in the 'animal' box, the picture will act out the action.
         </h2>
         <!--This is where users can drop animals or verbs into boxes-->
         <div id="dropZone">
             <div id="condition">
-            <p>If</p>
+                <p>If</p>
             </div>
             <div
             id="dropBox1"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
             >
-            <p>Animal</p>
+                <p>Animal</p>
             </div>
             <div id="condition">
-            <p>Then</p>
+                <p>Then</p>
             </div>
             <div
             id="dropBox2"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
             >
-            <p>Verb</p>
+                <p>Action</p>
             </div>
         </div>
         
         <!--Pics of animals-->
         <div
-            id="animals"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
+        id="animals"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
         >
             <img
             id="cat"
+            class="animal"
             src="https://tinyurl.com/y5nb5srl"
+            alt="cat"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -53,7 +55,9 @@
         
             <img
             id="dog"
+            class="animal"
             src="https://tinyurl.com/yyxtnt6w"
+            alt="dog"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -61,7 +65,9 @@
         
             <img
             id="cow"
+            class="animal"
             src="https://tinyurl.com/y325y39y"
+            alt="cow"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -69,7 +75,9 @@
         
             <img
             id="bird"
+            class="animal"
             src="https://tinyurl.com/y63y9arx"
+            alt="bird"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -78,13 +86,15 @@
 
         <!--Pics of verbs-->
         <div
-            id="verb"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
+        id="verb"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
         >
             <img
             id="jump"
-            src="https://images.unsplash.com/photo-1572984495349-f1adb89ee758?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8anVtcCUyMHRleHR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            class="verb"
+            src="https://tinyurl.com/y32p6479"
+            alt="jump"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -92,7 +102,9 @@
         
             <img
             id="roll"
+            class="verb"
             src="https://www.pixelscrapper.com/sites/default/files/styles/456_scale/public/s3fs-user-content/graphic-image/user-1051/node-201434/gamer-girl-word-art-roll-graphic-game-play-player-element-embellishment-yellow-navy-blue.png"
+            alt="roll"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -100,6 +112,8 @@
         
             <img
             id="walk"
+            class="verb"
+            alt="walk"
             src="https://i.pinimg.com/564x/3a/10/b2/3a10b28270fbd0bc2615946bedb2aaf3.jpg"
             draggable="true"
             ondragstart="drag(event)"
@@ -107,8 +121,10 @@
             />
         
             <img
-            id="fly"
-            src="https://productivemonkey.files.wordpress.com/2014/01/wasting-words-fly.png"
+            id="shake"
+            class="verb"
+            src="https://tinyurl.com/yyfapux7"
+            alt="shake"
             draggable="true"
             ondragstart="drag(event)"
             width="300"
@@ -118,7 +134,9 @@
         <!--Generate Animal. If the picture matches with the picture user initially chose, animal will animate w/ verb-->
         <div id="generate">
             <button onclick="randomImg()">Generate Animal</button>
-            <p><img id="randomImgBox" src="https://tinyurl.com/yxt586nh"></p>
+            <p>
+                <img id="tryAgainImg" src="https://tinyurl.com/y3tc6ypc">
+                <img id="randomImgBox" src="https://tinyurl.com/yxt586nh"></p>
         </div>
         
         <script src="script.js"></script>

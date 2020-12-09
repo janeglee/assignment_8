@@ -1,31 +1,26 @@
-body {
-    /* i want to make everything fit on one screen, no scrolling */
-    
-}
-
-/*this needs to be centered*/
 h1 {
     font-family: 'Raleway', sans-serif;
     margin: auto;
     width: 50%;
     padding: 10px;
     justify-content: center;
+    text-align: center;
 }
 
 h2 {
     font-style: italic;
     font-family: 'Raleway', sans-serif;
     font-size: 16px;
-    padding: 10px;
+    padding: 10px 15vw;
 }
 
 #dropZone,
 #animals,
 #verb {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
-  min-height: 200px;
+  min-height: 150px;
   margin-bottom: 20px;
 }
 
@@ -35,8 +30,8 @@ h2 {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 250px;
-  width: 250px;
+  height: 16vw;
+  width: 16vw;
   border: 1px solid #aaaaaa;
   padding: 1rem;
 }
@@ -46,8 +41,8 @@ h2 {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 250px;
+    height: 16vw;
+    width: 16vw;
     padding: 1rem;
 }
 
@@ -56,13 +51,130 @@ h2 {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 10px;
     margin: 0 auto;
     width: 50%;
 }
 
+#generate p {
+    position: relative;
+}
+
+#randomImgBox {
+    height: 250px;
+    width: 250px;
+}
+
+#tryAgainImg {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#tryAgainImg.visible {
+    animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+    display: block;
+    opacity: 0;
+}
+
 img {
-  height: 200px;
+  height: 150px;
   object-fit: cover;
-  width: 200px;
+  width: 150px;
+}
+
+@keyframes jump {
+    0% {
+        transform: translate3d(0,0,0) scale3d(1,1,1);
+    }
+    40% {
+        transform: translate3d(0,30%,0) scale3d(.7,1.5,1);
+    }
+    100% {
+        transform: translate3d(0,100%,0) scale3d(1.5,.7,1);
+    }
+}
+.jump {
+    transform-origin: 50% 50%;
+    animation: jump .5s linear alternate infinite;
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+  
+.roll {
+    animation: roll 2s linear infinite both;
+}
+
+@keyframes walk {
+    0%,
+    100% {
+            transform: translateX(0%);
+            transform-origin: 50% 50%;
+    }
+    15% {
+              transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+              transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+              transform: translateX(-15px) rotate(-6deg);
+    }
+    60% {
+              transform: translateX(9px) rotate(6deg);
+    }
+    75% {
+              transform: translateX(-6px) rotate(-6deg);
+    }
+}
+.walk {
+    animation: walk 2s linear infinite both;
+}
+
+@keyframes shake {
+    0%,
+    100% {
+              transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+              transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60% {
+              transform: translateX(10px);
+    }
+    80% {
+              transform: translateX(8px);
+    }
+    90% {
+              transform: translateX(-8px);
+    }
+}
+  
+.shake {
+    animation: shake 1s linear infinite both;
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
 }

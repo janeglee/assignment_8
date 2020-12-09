@@ -1,51 +1,87 @@
+const state = {
+    animal: null,
+    action: null,
+    dragElement: null
+};
+
 function allowDrop(event) {
     event.preventDefault();
 }
   
 function drag(event) {
     event.dataTransfer.setData("text", event.target.id);
+    state.dragElement = event.target.classList[0];
 }
   
 function drop(event) {
-    event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    event.target.appendChild(document.getElementById(data));
-    console.log(data);
+    event.preventDefault();  
+    const data = event.dataTransfer.getData("text");
+    const parentID = event.currentTarget.id;
+    const element = event.currentTarget.children.length && event.currentTarget.children[1];
+    if (state.dragElement === "animal" && parentID === "dropBox1") {
+        //allow drop
+    }
+    else if (state.dragElement === "verb" && parentID === "dropBox2") {
+        //allow drop
+    }
+    else {
+        //don't allow drop
+        return;
+    }
+    if (element) {
+        if (element.className === "animal") {
+            document.getElementById('animals').appendChild(element);
+        }
+        else if (element.className === "verb") {
+            document.getElementById('verb').appendChild(element);
+        }
+    }
+    event.currentTarget.appendChild(document.getElementById(data));
+    if (parentID === "dropBox1") {
+        state.animal = data;
+    }
+
+    else if (parentID === "dropBox2") {
+        state.action = data;
+    }
 }
 
 function randomImg () {
+    let randomAnimal = null;
+    let randomImgBox = document.getElementById('randomImgBox');
+    let tryAgainImg = document.getElementById('tryAgainImg');
     const randomNumber = Math.floor(Math.random() * 4) + 1; 
-    const imageID = null;
+    randomImgBox.className = "";
+    tryAgainImg.className = "";
     if (randomNumber == 1) {
-        const img = document.createElement("img");
-        imageID = document.getElementById("cat");
-        img.src = document.getElementById("cat").src;
-        document.getElementById('randomImgBox').src = img.src;
+        randomImgBox.src = document.getElementById("cat").src;
+        randomAnimal = 'cat';
     }
     else if (randomNumber == 2) {
-        const img = document.createElement("img");
-        img.src = document.getElementById("dog").src;
-        document.getElementById('randomImgBox').src = img.src;
+        randomImgBox.src = document.getElementById("dog").src;
+        randomAnimal = 'dog';
     }
     else if (randomNumber == 3) {
-        const img = document.createElement("img");
-        img.src = document.getElementById("cow").src;
-        document.getElementById('randomImgBox').src = img.src;
+        randomImgBox.src = document.getElementById("cow").src;
+        randomAnimal = 'cow';
     }
     else if (randomNumber == 4) {
-        const img = document.createElement("img");
-        img.src = document.getElementById("bird").src;
-        document.getElementById('randomImgBox').src = img.src;
+        randomImgBox.src = document.getElementById("bird").src;
+        randomAnimal = 'bird';
     }
 
-    if (imageID == data) {
+    if (randomAnimal === state.animal) {
         //animate image according to action
-        //hmm "data" is same for animal and verb. need 2 sets, differentiate.
-        const action = document.getElementById
+        const action = state.action;
+        randomImgBox.className = action;
     }
+    //if the image does not match up with random img, it will say "Try again!"
     else {
         //after delay, show "Try again!"
+        setTimeout(tryAgain,500);
     }
 }
 
-//need to 
+function tryAgain () {
+    tryAgainImg.className = "visible";
+}
