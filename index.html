@@ -1,143 +1,162 @@
-<!DOCTYPE html>
-
-<html lang="en"> 
+<!doctype html>
+<html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Learn to Code With Animals!</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
         <link rel="stylesheet" href="styles.css">
-        <title>Animal Coding Game</title>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     </head>
-
     <body>
-        <h1>Animal Coding Game</h1>
-        <h2>How to Play: Place an animal in the 'animal' box, and place an action in the 'action' box. 
-            Press 'Generate Animal.' <br>
-            If the generated animal matches the animal you put in the 'animal' box, the picture will act out the action.
-        </h2>
-        <!--This is where users can drop animals or verbs into boxes-->
-        <div id="dropZone">
-            <div id="condition">
-                <p>If</p>
+        <div class="container-fluid mask rgba-gradient">
+            <h1>Animal Coding Game</h1>
+            <h2>How to Play: Place an animal in the 'animal' box, and place an action in the 'action' box. 
+                Press 'Generate Animal.' <br>
+                If the generated animal matches the animal you put in the 'animal' box, the picture will act out the action.
+            </h2>
+            <!--This is where users can drop animals or verbs into boxes-->
+            <div 
+            id="dropZone" 
+            >
+                <div id="condition">
+                    <p>If</p>
+                </div>
+                <div
+                id="dropBox1"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"
+                >
+                    <p>Animal</p>
+                </div>
+                <div id="condition">
+                    <p>Then</p>
+                </div>
+                <div
+                id="dropBox2"
+                ondrop="drop(event)"
+                ondragover="allowDrop(event)"
+                >
+                    <p>Action</p>
+                </div>
             </div>
+            
+            <!--Pics of animals-->
             <div
-            id="dropBox1"
+            id="animals"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
             >
-                <p>Animal</p>
+                <img
+                id="cat"
+                class="animal"
+                src="https://tinyurl.com/y5nb5srl"
+                alt="cat"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
+            
+                <img
+                id="dog"
+                class="animal"
+                src="https://tinyurl.com/yyxtnt6w"
+                alt="dog"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
+            
+                <img
+                id="cow"
+                class="animal"
+                src="https://tinyurl.com/y325y39y"
+                alt="cow"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
+            
+                <img
+                id="bird"
+                class="animal"
+                src="https://tinyurl.com/y63y9arx"
+                alt="bird"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
             </div>
-            <div id="condition">
-                <p>Then</p>
-            </div>
+
+            <!--Pics of verbs-->
             <div
-            id="dropBox2"
+            id="verb"
             ondrop="drop(event)"
             ondragover="allowDrop(event)"
             >
-                <p>Action</p>
+                <img
+                id="jump"
+                class="verb"
+                src="https://tinyurl.com/y32p6479"
+                alt="jump"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
+            
+                <img
+                id="roll"
+                class="verb"
+                src="https://www.pixelscrapper.com/sites/default/files/styles/456_scale/public/s3fs-user-content/graphic-image/user-1051/node-201434/gamer-girl-word-art-roll-graphic-game-play-player-element-embellishment-yellow-navy-blue.png"
+                alt="roll"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
+            
+                <img
+                id="walk"
+                class="verb"
+                alt="walk"
+                src="https://i.pinimg.com/564x/3a/10/b2/3a10b28270fbd0bc2615946bedb2aaf3.jpg"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
+            
+                <img
+                id="shake"
+                class="verb"
+                src="https://tinyurl.com/yyfapux7"
+                alt="shake"
+                draggable="true"
+                ondragstart="drag(event)"
+                width="300"
+                />
             </div>
-        </div>
-        
-        <!--Pics of animals-->
-        <div
-        id="animals"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        >
-            <img
-            id="cat"
-            class="animal"
-            src="https://tinyurl.com/y5nb5srl"
-            alt="cat"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        
-            <img
-            id="dog"
-            class="animal"
-            src="https://tinyurl.com/yyxtnt6w"
-            alt="dog"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        
-            <img
-            id="cow"
-            class="animal"
-            src="https://tinyurl.com/y325y39y"
-            alt="cow"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        
-            <img
-            id="bird"
-            class="animal"
-            src="https://tinyurl.com/y63y9arx"
-            alt="bird"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        </div>
 
-        <!--Pics of verbs-->
-        <div
-        id="verb"
-        ondrop="drop(event)"
-        ondragover="allowDrop(event)"
-        >
-            <img
-            id="jump"
-            class="verb"
-            src="https://tinyurl.com/y32p6479"
-            alt="jump"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        
-            <img
-            id="roll"
-            class="verb"
-            src="https://www.pixelscrapper.com/sites/default/files/styles/456_scale/public/s3fs-user-content/graphic-image/user-1051/node-201434/gamer-girl-word-art-roll-graphic-game-play-player-element-embellishment-yellow-navy-blue.png"
-            alt="roll"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        
-            <img
-            id="walk"
-            class="verb"
-            alt="walk"
-            src="https://i.pinimg.com/564x/3a/10/b2/3a10b28270fbd0bc2615946bedb2aaf3.jpg"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        
-            <img
-            id="shake"
-            class="verb"
-            src="https://tinyurl.com/yyfapux7"
-            alt="shake"
-            draggable="true"
-            ondragstart="drag(event)"
-            width="300"
-            />
-        </div>
+            <!--Generate Animal. If the picture matches with the picture user initially chose, animal will animate w/ verb-->
+            <div 
+            id="generate"
+            >
+                <button onclick="randomImg()" class="btn btn-primary btn-lg">Generate Animal</button>
+                <br>
+                <p>
+                    <img id="tryAgainImg" src="https://tinyurl.com/y3tc6ypc">
+                    <img id="randomImgBox" src="https://tinyurl.com/yxt586nh"></p>
+            </div>
+            
+            <script src="script.js"></script>
 
-        <!--Generate Animal. If the picture matches with the picture user initially chose, animal will animate w/ verb-->
-        <div id="generate">
-            <button onclick="randomImg()">Generate Animal</button>
-            <p>
-                <img id="tryAgainImg" src="https://tinyurl.com/y3tc6ypc">
-                <img id="randomImgBox" src="https://tinyurl.com/yxt586nh"></p>
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
         </div>
-        
-        <script src="script.js"></script>
     </body>
+</html>

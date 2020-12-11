@@ -10,7 +10,7 @@ h1 {
 h2 {
     font-style: italic;
     font-family: 'Raleway', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 15vw;
 }
 
@@ -21,19 +21,44 @@ h2 {
   flex-flow: row wrap;
   justify-content: space-between;
   min-height: 150px;
-  margin-bottom: 20px;
+  width: 75%;
+  margin-bottom: 2vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#dropBox1,
-#dropBox2 {
+.animal {
+    border: 2px solid #39b0ff;
+    height: 14vw;
+    width: 14vw;
+}
+
+.verb {
+    border: 2px solid rgb(126, 228, 95);
+    height: 14vw;
+    width: 14vw;
+}
+
+#dropBox1 {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 16vw;
-  width: 16vw;
-  border: 1px solid #aaaaaa;
+  height: 14vw;
+  width: 14vw;
+  border: 2px dotted #39b0ff;
   padding: 1rem;
+}
+
+#dropBox2 {
+display: flex;
+flex-flow: column nowrap;
+justify-content: center;
+align-items: center;
+height: 14vw;
+width: 14vw;
+border: 2px dotted rgb(126, 228, 95);
+padding: 1rem;
 }
 
 #condition {
@@ -61,8 +86,9 @@ h2 {
 }
 
 #randomImgBox {
-    height: 250px;
-    width: 250px;
+    height: 18vw;
+    width: 18vw;
+    border: 2px solid;
 }
 
 #tryAgainImg {
@@ -86,6 +112,12 @@ img {
   object-fit: cover;
   width: 150px;
 }
+
+.rgba-gradient {
+    background: -moz-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+    background: linear-gradient(to 45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+  }
 
 @keyframes jump {
     0% {
